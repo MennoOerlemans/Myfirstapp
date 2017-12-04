@@ -1,0 +1,63 @@
+---
+title: "Coursera Presentation shinyapp"
+author: "Menno Oerlemans"
+date: "4 december 2017"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+require(stats)
+data(swiss)
+
+```
+
+## Introduction
+- The shiny app was developed for the Developing data products course.  
+- To build the app the swiss data from the stat package was used.  
+- The shiny app can be accessed using the following link:  
+https://mennooerlemans.shinyapps.io/Myfirstapp/  
+- The documentation can be found using the following link:  
+https://github.com/MennoOerlemans/Myfirstapp
+
+
+
+## The data
+
+- Data: Standardized fertility measure and socio-economic indicators for each of 47 French-speaking provinces of Switzerland at about 1888.
+- The app is working on the swiss data:  
+https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/swiss.html
+
+The variables are:  
+[,1]	Fertility	        Common standardized fertility measure  
+[,2]	Agriculture	        % of males involved in agriculture as occupation  
+[,3]	Examination	        % draftees receiving highest mark on army examination  
+[,4]	Education	        % education beyond primary school for draftees.  
+[,5]	Catholic	        % 'catholic' (as opposed to 'protestant').  
+[,6]	Infant.Mortality	live births who live less than 1 year.  
+
+## The app itself
+- The app will give the plot of (a part of) the swiss dataset.  
+- Fertility is used as the dependend  and the others as the explanatory variables.  
+- The variable to be used as explanatory can be choosen in the dropbox in the side panel.  
+- The plot is a scatterplot with all the points in the data (Fertility versus the choosen variable)  
+- Under the plot the intercept and the slope of the lineair model are shown.  
+
+## Plot of Agriculture
+
+The full code can be found in: https://github.com/MennoOerlemans/Myfirstapp
+
+The code for the plot is:
+
+```{r echo=TRUE}
+mf <- lm(Fertility ~ Agriculture, data = swiss)
+plot(y = swiss$Fertility, x = swiss$Agriculture, ylab="Fertility", xlab="Agriculture", col="red")
+abline(mf)
+```
+
+## Conclusion
+
+The shiny application package is a usefull tool to present the results of a data study.
+

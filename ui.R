@@ -29,13 +29,17 @@ shinyUI(fluidPage(
     
     # Show a plot of the generated distribution
     mainPanel(
-            h5("The code is in: "),
-            h5("The presentation is in: "),
+            h5("The code is in: https://github.com/MennoOerlemans/Myfirstapp"),
+            h5("The presentation is in: http://rpubs.com/Menno_Oerlemans/337459"),
             br(),
             br(),
             h4("The output of the data and the lineair regression line of"),
             h4("the choosen variable against Fertility:"),
-            plotOutput("plot")
+            plotOutput("plot"),
+            h5("The intercept is:"),
+            h4(textOutput("intercept")),
+            h5("The slope is: "),
+            h4(textOutput("schuin"))
     )
   )
 ))

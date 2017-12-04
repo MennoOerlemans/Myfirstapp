@@ -26,7 +26,17 @@ shinyServer(function(input, output) {
                 lm(as.formula(formula()), data = swiss)
         })
         
+        output$intercept <- renderText({
+                x <- lm(as.formula(formula()), data = swiss)
+                coef(x)[1]
+                
+        })
         
+        output$schuin <- renderText({
+                x <- lm(as.formula(formula()), data = swiss)
+                coef(x)[2]
+                
+        })
         output$plot <- renderPlot({ 
                 plot(as.formula(formula()), 
                      data = swiss, ylab="Fertility", xlab=col(), col="red")
